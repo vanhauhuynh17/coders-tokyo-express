@@ -1,0 +1,44 @@
+
+extends ../layouts/common
+
+block content
+
+
+	h1 
+		span.mr-5 Users
+
+		a.btn.btn-primary(href="/users/create") New
+	.d-flex.aling-items-center
+		form.ml-auto(action="/users/search", method="GET", class="d-flex")
+			input(type="text",name="q", id = "input-field",class = "form-control ml-2")
+			button(class = "btn btn-primary ml-2") Search
+		
+
+	img(src="/images/logo.jpg")
+	table.table
+		th Name
+		th Phone
+		th View
+
+		each user in users
+			tr
+				td=user.name
+				td=user.phone
+				td
+					a.btn.btn-light(href='/users/' + user.id) View
+
+	script.
+		
+		var searchInput = document.getElementById('input-field');
+		 var value = searchInput.value;
+		 
+		 searchInput.addEventListener('change', function(){
+		 	 var value = searchInput.value;	 	
+		 	sessionStorage.setItem("value", value);
+		 });	
+		searchInput.value = sessionStorage.getItem('value');
+	    
+   
+
+   
+   
