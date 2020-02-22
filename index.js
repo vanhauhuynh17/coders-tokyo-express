@@ -31,7 +31,7 @@ var apiProductRoute=require('./api/routes/product.route');
 // CRUD = CREATE RETIRVE UPDTE DELETE
 var app = express();
 
-var port = 3000;
+var port =process.env.PORT || 3000;
 // var users = [
 // 			{id:1, name:'Hau'},
 // 			{id:1, name:'A'},
